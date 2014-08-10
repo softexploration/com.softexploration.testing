@@ -1,10 +1,14 @@
 package com.softexploration.testing.fixture.execution;
 
 /**
- * Code to be execute as a part of a fixture
+ * Unit of code to be executed as a part of a
+ * {@link com.softexploration.testing.fixture.Fixture}
  */
 public interface FixtureExecutionUnit {
 
+	/**
+	 * Predefined No Operation fixture execution unit
+	 */
 	FixtureExecutionUnit NOP = new FixtureExecutionUnit() {
 		@Override
 		public void execute() {
@@ -12,5 +16,8 @@ public interface FixtureExecutionUnit {
 		}
 	};
 
+	/**
+	 * Execute the unit
+	 */
 	void execute();
 }

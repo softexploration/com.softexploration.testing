@@ -7,7 +7,7 @@ import org.junit.Rule;
 import org.junit.Test;
 
 import com.softexploration.testing.fixture.suite.FixtureSuite;
-import com.softexploration.testing.fixture.suite.impl.RegistrantsFixtureSuite;
+import com.softexploration.testing.fixture.suite.RegistrantsFixtureSuite;
 
 @Fixture(value = DefaultFixtureTest.INCREMENT_NUMBER_A, executeBeforeTest = true, executeAfterTest = true)
 public class DefaultFixtureTest {

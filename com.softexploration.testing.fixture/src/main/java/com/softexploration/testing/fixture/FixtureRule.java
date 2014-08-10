@@ -6,6 +6,10 @@ import org.junit.runners.model.Statement;
 
 import com.softexploration.testing.fixture.suite.FixtureSuite;
 
+/**
+ * Rule to handle a {@link com.softexploration.testing.fixture.Fixture}
+ *
+ */
 public class FixtureRule implements TestRule {
 
 	private final FixtureSuite fixtureSuite;

@@ -8,7 +8,7 @@ import org.junit.runner.Result;
 
 import com.softexploration.testing.fixture.execution.FixtureExecutionUnit;
 import com.softexploration.testing.fixture.suite.FixtureSuite;
-import com.softexploration.testing.fixture.suite.impl.RegistrantsFixtureSuite;
+import com.softexploration.testing.fixture.suite.RegistrantsFixtureSuite;
 
 public class FixtureExceptionsTest {
 

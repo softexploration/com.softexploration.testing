@@ -1,7 +1,8 @@
 package com.softexploration.testing.fixture;
 
 /**
- * Fixture with a certain name cannot be found
+ * A {@link com.softexploration.testing.fixture.Fixture} with a certain name
+ * cannot be found
  */
 public class FixtureNotFoundException extends RuntimeException {
 

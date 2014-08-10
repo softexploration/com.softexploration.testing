@@ -6,11 +6,11 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * The annotation prevents from applying a fixture specified on test method or
- * on tests class
+ * The annotation prevents from applying a
+ * {@link com.softexploration.testing.fixture.Fixture} specified on test method
+ * or on tests class
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ ElementType.METHOD, ElementType.TYPE })
 public @interface IgnoreFixture {
-
 }

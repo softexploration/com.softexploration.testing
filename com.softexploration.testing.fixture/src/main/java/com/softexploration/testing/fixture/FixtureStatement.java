@@ -6,6 +6,10 @@ import org.junit.runners.model.Statement;
 import com.softexploration.testing.fixture.execution.FixtureExecutor;
 import com.softexploration.testing.fixture.suite.FixtureSuite;
 
+/**
+ * The {@link org.junit.runners.model.Statement} implementation for
+ * {@link com.softexploration.testing.fixture.FixtureRule}'s purposes
+ */
 public class FixtureStatement extends Statement {
 
 	private final Statement base;

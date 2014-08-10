@@ -1,7 +1,8 @@
 package com.softexploration.testing.fixture;
 
 /**
- * Fixture with a certain name already exist
+ * A {@link com.softexploration.testing.fixture.Fixture} with a certain name
+ * already exist
  */
 public class FixtureAlreadyExistsException extends RuntimeException {
 
