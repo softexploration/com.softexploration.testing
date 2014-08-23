@@ -11,7 +11,8 @@ import java.lang.annotation.Target;
  * a given name to the test method.
  * 
  * When the annotation appears at a class level then it is considered as a
- * default fixture for all test methods without the Fixture annotation within a
+ * default fixture for all test methods without the
+ * {@link com.softexploration.testing.fixture.Fixture} annotation within a
  * current test class. It is true unless a method or a class is marked with
  * {@link com.softexploration.testing.fixture.IgnoreFixture} annotation.
  *

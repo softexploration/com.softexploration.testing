@@ -11,13 +11,17 @@ public interface FixtureExecutionUnit {
 	 */
 	FixtureExecutionUnit NOP = new FixtureExecutionUnit() {
 		@Override
-		public void execute() {
+		public <T> void execute(final FixtureExecutionContext context) {
 			// do nothing
 		}
 	};
 
 	/**
 	 * Execute the unit
+	 * 
+	 * @param context
+	 *            - fixture's execution context
 	 */
-	void execute();
+	<T> void execute(FixtureExecutionContext context);
+
 }

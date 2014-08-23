@@ -3,6 +3,7 @@ package com.softexploration.testing.fixture;
 import org.junit.runner.Description;
 import org.junit.runners.model.Statement;
 
+import com.softexploration.testing.fixture.execution.FixtureExecutionContext;
 import com.softexploration.testing.fixture.execution.FixtureExecutor;
 import com.softexploration.testing.fixture.suite.FixtureSuite;
 
@@ -15,14 +16,18 @@ public class FixtureStatement extends Statement {
 	private final Statement base;
 	private final Description description;
 	private final FixtureSuite fixtureSuite;
+	private final FixtureExecutionContext fixtureContext;
+
 	private final FixtureExecutor fixtureExecutor = new FixtureExecutor();
 
 	private Fixture activeFixture;
 
-	public FixtureStatement(final Statement base, final Description description, final FixtureSuite fixtureSuite) {
+	public FixtureStatement(final Statement base, final Description description, final FixtureSuite fixtureSuite,
+			final FixtureExecutionContext fixtureContext) {
 		this.base = base;
 		this.description = description;
 		this.fixtureSuite = fixtureSuite;
+		this.fixtureContext = fixtureContext;
 	}
 
 	@Override
@@ -87,15 +92,15 @@ public class FixtureStatement extends Statement {
 
 	private void evaluateBeforeTestExecution() {
 		if (shouldExecuteBeforeTest()) {
-			fixtureExecutor.execute(fixtureSuite.getBeforeTest(getActiveFixtureName()));
+			fixtureExecutor.execute(fixtureSuite.getBeforeTest(getActiveFixtureName()), fixtureContext);
 		}
 	}
 
 	private boolean shouldExecuteBeforeTest() {
-		return isActiveFixturePresent() && getActiveFixture().executeBeforeTest();
+		return isActiveFixtureAvailable() && getActiveFixture().executeBeforeTest();
 	}
 
-	private boolean isActiveFixturePresent() {
+	private boolean isActiveFixtureAvailable() {
 		return getActiveFixture() != null;
 	}
 
@@ -109,12 +114,12 @@ public class FixtureStatement extends Statement {
 
 	private void evaluateAfterTestExecution() {
 		if (shouldExecuteAfterTest()) {
-			fixtureExecutor.execute(fixtureSuite.getAfterTest(getActiveFixtureName()));
+			fixtureExecutor.execute(fixtureSuite.getAfterTest(getActiveFixtureName()), fixtureContext);
 		}
 	}
 
 	private boolean shouldExecuteAfterTest() {
-		return isActiveFixturePresent() && getActiveFixture().executeAfterTest();
+		return isActiveFixtureAvailable() && getActiveFixture().executeAfterTest();
 	}
 
 }

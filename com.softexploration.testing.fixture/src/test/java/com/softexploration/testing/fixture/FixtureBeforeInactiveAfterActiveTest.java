@@ -10,8 +10,7 @@ import com.softexploration.testing.fixture.execution.FixtureExecutionContext;
 import com.softexploration.testing.fixture.suite.FixtureSuite;
 import com.softexploration.testing.fixture.suite.RegistrantsFixtureSuite;
 
-@Fixture(value = IgnoreAtMethodFixtureAtClassTest.INCREMENT_NUMBER_A)
-public class IgnoreAtMethodFixtureAtClassTest {
+public class FixtureBeforeInactiveAfterActiveTest {
 
 	static final String INCREMENT_NUMBER_A = "incrementNumberA";
 
@@ -22,8 +21,8 @@ public class IgnoreAtMethodFixtureAtClassTest {
 
 	static FixtureSuite createFixtureSuite() {
 		RegistrantsFixtureSuite fixtureSuite = new RegistrantsFixtureSuite();
-		fixtureSuite.registerFixture(INCREMENT_NUMBER_A, IgnoreAtMethodFixtureAtClassTest::incrementNumberAby2,
-				IgnoreAtMethodFixtureAtClassTest::incrementNumberAby4);
+		fixtureSuite.registerFixture(INCREMENT_NUMBER_A, FixtureBeforeInactiveAfterActiveTest::incrementNumberAby2,
+				FixtureBeforeInactiveAfterActiveTest::incrementNumberAby4);
 		return fixtureSuite;
 	}
 
@@ -41,14 +40,16 @@ public class IgnoreAtMethodFixtureAtClassTest {
 	}
 
 	@Test
-	@IgnoreFixture
+	@Fixture(value = INCREMENT_NUMBER_A, executeBeforeTest = false, executeAfterTest = true)
 	public void testFixtureExecution() {
+		// numberA = 1
 		Assert.assertEquals(1, numberA);
 	}
 
 	@AfterClass
 	public static void afterClass() {
-		Assert.assertEquals(1, numberA);
+		// numberA = 1 + 4 = 5
+		Assert.assertEquals(5, numberA);
 	}
 
 }

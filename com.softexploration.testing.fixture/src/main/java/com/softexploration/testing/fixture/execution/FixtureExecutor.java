@@ -10,8 +10,10 @@ public class FixtureExecutor {
 	 * Execute given {@code fixtureExecutionUnit}
 	 * 
 	 * @param fixtureExecutionUnit
+	 * @param fixtureContext
 	 */
-	public void execute(final FixtureExecutionUnit fixtureExecutionUnit) {
-		fixtureExecutionUnit.execute();
+	public <T> void execute(final FixtureExecutionUnit fixtureExecutionUnit,
+			final FixtureExecutionContext fixtureContext) {
+		fixtureExecutionUnit.execute(fixtureContext);
 	}
 }
