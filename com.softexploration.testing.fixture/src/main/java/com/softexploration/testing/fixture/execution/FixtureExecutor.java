@@ -12,8 +12,7 @@ public class FixtureExecutor {
 	 * @param fixtureExecutionUnit
 	 * @param fixtureContext
 	 */
-	public <T> void execute(final FixtureExecutionUnit fixtureExecutionUnit,
-			final FixtureExecutionContext fixtureContext) {
+	public void execute(final FixtureExecutionUnit fixtureExecutionUnit, final FixtureExecutionContext fixtureContext) {
 		fixtureExecutionUnit.execute(fixtureContext);
 	}
 }
